@@ -7,11 +7,19 @@
 
 export interface Schema {
   version: string;
-  channel: ChannelInformation;
+  channel: Channel;
+  items: Item[];
   [k: string]: unknown;
 }
-export interface ChannelInformation {
+export interface Channel {
   required?: unknown;
   title?: string;
+  [k: string]: unknown;
+}
+export interface Item {
+  required?: unknown;
+  title?: string;
+  published?: string;
+  explicit?: boolean;
   [k: string]: unknown;
 }
