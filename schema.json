@@ -4,18 +4,25 @@
     "additionalProperties": "false",
     "required": [
         "version",
-        "channel"
+        "channel",
+        "items"
     ],
     "properties": {
         "version": {
             "type": "string"
         },
         "channel": {
-            "$ref": "#/definitions/ChannelInformation"
+            "$ref": "#/definitions/Channel"
+        },
+        "items": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Item"
+            }
         }
     },
     "definitions": {
-        "ChannelInformation": {
+        "Channel": {
             "type": "object",
             "properties": {
                 "required": [
@@ -23,6 +30,25 @@
                 ],
                 "title": {
                     "type": "string"
+                }
+            }
+        },
+        "Item": {
+            "type": "object",
+            "properties": {
+                "required": [
+                    "title",
+                    "published"
+                ],
+                "title": {
+                    "type": "string"
+                },
+                "published": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "explicit": {
+                    "type": "boolean"
                 }
             }
         }
