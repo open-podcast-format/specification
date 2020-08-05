@@ -5,6 +5,8 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+export type Url = string;
+
 export interface Schema {
   version: string;
   channel: Channel;
@@ -28,7 +30,7 @@ export interface Channel {
 export interface Picture {
   required?: unknown;
   mime?: string;
-  url?: string;
+  url?: Url;
   [k: string]: unknown;
 }
 export interface Item {

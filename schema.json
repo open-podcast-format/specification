@@ -53,7 +53,7 @@
                     "type": "string"
                 },
                 "url": {
-                    "type": "string"
+                    "$ref": "#/definitions/Url"
                 }
             }
         },
@@ -81,6 +81,13 @@
                     }
                 }
             }
+        },
+        "Url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^(http|https|ftp)://",
+            "minLength": 1,
+            "maxLength": 1024
         }
     }
 }
