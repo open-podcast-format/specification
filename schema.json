@@ -1,0 +1,30 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "type": "object",
+    "additionalProperties": "false",
+    "required": [
+        "version",
+        "channel"
+    ],
+    "properties": {
+        "version": {
+            "type": "string"
+        },
+        "channel": {
+            "$ref": "#/definitions/ChannelInformation"
+        }
+    },
+    "definitions": {
+        "ChannelInformation": {
+            "type": "object",
+            "properties": {
+                "required": [
+                    "title"
+                ],
+                "title": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
