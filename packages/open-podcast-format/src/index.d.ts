@@ -11,7 +11,6 @@ export interface Schema {
   version: string;
   channel: Channel;
   items: Item[];
-  [k: string]: unknown;
 }
 export interface Channel {
   required?: unknown;
@@ -25,19 +24,26 @@ export interface Channel {
     | [Picture, Picture, Picture, Picture, Picture, Picture]
     | [Picture, Picture, Picture, Picture, Picture, Picture, Picture]
     | [Picture, Picture, Picture, Picture, Picture, Picture, Picture, Picture];
-  [k: string]: unknown;
 }
 export interface Picture {
   required?: unknown;
   mime?: string;
   url?: Url;
-  [k: string]: unknown;
 }
 export interface Item {
   required?: unknown;
   title?: string;
   published?: string;
   explicit?: boolean;
-  avatar?: Picture[];
-  [k: string]: unknown;
+  media?: {
+    required?: unknown;
+    url?: Url;
+    mime?: string;
+    size?: number;
+  }[];
+  avatar?: {
+    required?: unknown;
+    mime?: string;
+    url?: Url;
+  }[];
 }

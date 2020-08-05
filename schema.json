@@ -2,7 +2,7 @@
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "$id": "https://raw.githubusercontent.com/open-podcast-format/specification/master/schema.json",
     "type": "object",
-    "additionalProperties": "false",
+    "additionalProperties": false,
     "required": [
         "version",
         "channel",
@@ -25,6 +25,7 @@
     "definitions": {
         "Channel": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "required": [
                     "title"
@@ -42,8 +43,28 @@
                 }
             }
         },
+        "Media": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "required": [
+                    "url",
+                    "mime"
+                ],
+                "url": {
+                    "$ref": "#/definitions/Url"
+                },
+                "mime": {
+                    "type": "string"
+                },
+                "size": {
+                    "type": "number"
+                }
+            }
+        },
         "Picture": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "required": [
                     "mime",
@@ -59,6 +80,7 @@
         },
         "Item": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "required": [
                     "title",
@@ -74,9 +96,18 @@
                 "explicit": {
                     "type": "boolean"
                 },
+                "media": {
+                    "type": "array",
+                    "items": {
+                        "minItems": 1,
+                        "maxItems": 8,
+                        "$ref": "#/definitions/Media"
+                    }
+                },
                 "avatar": {
                     "type": "array",
                     "items": {
+                        "maxItems": 8,
                         "$ref": "#/definitions/Picture"
                     }
                 }
